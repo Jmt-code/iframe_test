@@ -1,0 +1,101 @@
+<div class="app-container">
+  <!-- URL Bar - Desktop Only -->
+  <div class="url-bar" *ngIf="!isMobile() && t()">
+    <div class="url-input-group">
+      <input 
+        type="text" 
+        class="url-input" 
+        [value]="inputUrl()"
+        (input)="updateInputUrl($any($event.target).value)"
+        [placeholder]="t()!.ui.urlPlaceholder"
+        (keyup.enter)="onLoadUrlClick()"
+      />
+      <button class="btn btn-primary" (click)="onLoadUrlClick()">{{ t()!.ui.loadButton }}</button>
+    </div>
+    
+    <div class="device-selector">
+      <label>{{ t()!.ui.deviceLabel }}</label>
+      <select class="device-select" (change)="onDeviceChange($event)">
+        <option *ngFor="let device of devices; let i = index; trackBy: trackByIndex" [value]="i">
+          {{ getDeviceDisplayName(device) }} ({{ device.width }}×{{ device.height }})
+        </option>
+      </select>
+    </div>
+    
+    <div class="language-selector">
+      <select class="language-select" [value]="currentLang()" (change)="updateCurrentLang($any($event.target).value)">
+        <option *ngFor="let lang of availableLanguages; trackBy: trackByLang" [value]="lang">
+          {{ getLanguageName(lang) }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div 
+      class="device-frame" 
+      [class.custom]="isCustomDevice() && !isMobile()"
+      [ngStyle]="deviceStyle()"
+      *ngIf="safeUrl()"
+    >
+      <div class="device-info" *ngIf="!isMobile()">
+        <span class="device-name">{{ getDeviceDisplayName(selectedDevice()) }} - {{ currentWidth() }}×{{ currentHeight() }}</span>
+        <button class="btn-orientation" (click)="toggleOrientation()" [title]="'Toggle orientation'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" *ngIf="!isLandscape()"></rect>
+            <rect x="3" y="2" width="14" height="20" rx="2" ry="2" *ngIf="isLandscape()" transform="rotate(90 10 12)"></rect>
+            <path d="M8 21h8M12 17v4" *ngIf="!isLandscape()"></path>
+            <path d="M17 8v8M21 12h-4" *ngIf="isLandscape()"></path>
+          </svg>
+          {{ isLandscape() ? t()!.ui.portrait : t()!.ui.landscape }}
+        </button>
+      </div>
+      <div class="iframe-container" [ngStyle]="{'height': iframeHeight()}">
+        <iframe 
+          [src]="safeUrl()!"
+          allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; encrypted-media; fullscreen; geolocation; gyroscope; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; usb; web-share; xr-spatial-tracking"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="!safeUrl() && !isMobile() && t()">
+      <h2>{{ t()!.messages.emptyStateTitle }}</h2>
+      <p>{{ t()!.messages.emptyStateMessage }}</p>
+    </div>
+  </div>
+
+  <!-- Mobile URL Modal -->
+  <div class="modal-overlay" *ngIf="showModal() && isMobile() && t()">
+    <div class="modal">
+      <h2>{{ t()!.modal.title }}</h2>
+      
+      <!-- Language selector in modal -->
+      <div class="modal-language-group">
+        <select class="language-select-mobile" [value]="currentLang()" (change)="updateCurrentLang($any($event.target).value)">
+          <option *ngFor="let lang of availableLanguages; trackBy: trackByLang" [value]="lang">
+            {{ getLanguageName(lang) }}
+          </option>
+        </select>
+      </div>
+      
+      <div class="modal-input-group">
+        <input 
+          type="text" 
+          class="url-input" 
+          [value]="inputUrl()"
+          (input)="updateInputUrl($any($event.target).value)"
+          [placeholder]="t()!.ui.urlPlaceholder"
+          (keyup.enter)="onLoadUrlClick()"
+          autofocus
+        />
+        <button class="btn btn-primary btn-block" (click)="onLoadUrlClick()">
+          {{ t()!.ui.openButton }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

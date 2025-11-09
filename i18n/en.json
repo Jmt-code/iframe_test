@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Mobile Iframe Viewer"
+  },
+  "ui": {
+    "enterUrl": "Enter URL",
+    "urlPlaceholder": "Enter URL (e.g., example.com)",
+    "loadButton": "Load",
+    "deviceLabel": "Device:",
+    "openButton": "Open",
+    "portrait": "Portrait",
+    "landscape": "Landscape"
+  },
+  "modal": {
+    "title": "Enter URL"
+  },
+  "messages": {
+    "emptyStateTitle": "📱 Mobile Iframe Viewer",
+    "emptyStateMessage": "Enter a URL above to start",
+    "errorMessage": "Error loading site. It may be blocked by X-Frame-Options."
+  },
+  "devices": {
+    "custom": "Custom"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "zh": "中文",
+    "ru": "Русский",
+    "pt": "Português",
+    "ja": "日本語"
+  }
+}

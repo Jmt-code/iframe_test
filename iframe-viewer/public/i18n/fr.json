@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Visionneuse Iframe Mobile"
+  },
+  "ui": {
+    "enterUrl": "Entrer l'URL",
+    "urlPlaceholder": "Entrer l'URL (ex., example.com)",
+    "loadButton": "Charger",
+    "deviceLabel": "Appareil:",
+    "openButton": "Ouvrir",
+    "portrait": "Portrait",
+    "landscape": "Paysage"
+  },
+  "modal": {
+    "title": "Entrer l'URL"
+  },
+  "messages": {
+    "emptyStateTitle": "📱 Visionneuse Iframe Mobile",
+    "emptyStateMessage": "Entrez une URL ci-dessus pour commencer",
+    "errorMessage": "Erreur lors du chargement du site. Il peut être bloqué par X-Frame-Options."
+  },
+  "devices": {
+    "custom": "Personnalisé"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "zh": "中文",
+    "ru": "Русский",
+    "pt": "Português",
+    "ja": "日本語"
+  }
+}

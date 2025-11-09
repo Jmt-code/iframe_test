@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Visor de Iframe Móvil"
+  },
+  "ui": {
+    "enterUrl": "Ingresar URL",
+    "urlPlaceholder": "Ingresar URL (ej., example.com)",
+    "loadButton": "Cargar",
+    "deviceLabel": "Dispositivo:",
+    "openButton": "Abrir",
+    "portrait": "Vertical",
+    "landscape": "Horizontal"
+  },
+  "modal": {
+    "title": "Ingresar URL"
+  },
+  "messages": {
+    "emptyStateTitle": "📱 Visor de Iframe Móvil",
+    "emptyStateMessage": "Ingresa una URL arriba para comenzar",
+    "errorMessage": "Error al cargar el sitio. Puede estar bloqueado por X-Frame-Options."
+  },
+  "devices": {
+    "custom": "Personalizado"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "zh": "中文",
+    "ru": "Русский",
+    "pt": "Português",
+    "ja": "日本語"
+  }
+}

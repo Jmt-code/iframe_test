@@ -2,7 +2,13 @@
 
 Angular web application to preview websites in an iframe with mobile device simulation.
 
-## � Quick Start
+## 🌐 Live Demo
+
+**[https://jmt-code.github.io/iframe_test/](https://jmt-code.github.io/iframe_test/)**
+
+Try it with a URL parameter: `https://jmt-code.github.io/iframe_test/?url=https://example.com`
+
+## 🚀 Quick Start
 
 ```bash
 npm install
